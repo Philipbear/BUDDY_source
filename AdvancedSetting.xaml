@@ -1,0 +1,931 @@
+﻿<Page
+    x:Class="BUDDY.AdvancedSetting"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BUDDY"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="800" d:DesignHeight="780">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <converters:StringFormatConverter x:Key="StringFormatConverter"/>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="ToggleSwitchKnobFillOff" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleSwitchKnobFillOn" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleSwitchFillOff" Color="#757cbb"/>
+                    <SolidColorBrush x:Key="ToggleSwitchFillOn" Color="#757cbb"/>
+                    <SolidColorBrush x:Key="ToggleSwitchStrokeOff" Color="Transparent"/>
+                    <SolidColorBrush x:Key="ToggleSwitchStrokeOn" Color="Transparent"/>
+                    <SolidColorBrush x:Key="ToggleSwitchKnobFillOffPressed" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleSwitchKnobFillOnPressed" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleSwitchFillOffPressed" Color="#605ea8"/>
+                    <SolidColorBrush x:Key="ToggleSwitchFillOnPressed" Color="#605ea8"/>
+                    <SolidColorBrush x:Key="ToggleSwitchFillOffPointerOver" Color="#757cbb"/>
+                    <SolidColorBrush x:Key="ToggleSwitchFillOnPointerOver" Color="#757cbb"/>
+                    <SolidColorBrush x:Key="ToggleSwitchKnobFillOffPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleSwitchKnobFillOnPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleSwitchStrokeOffPointerOver" Color="#FF353535"/>
+                    <SolidColorBrush x:Key="ToggleSwitchStrokeOnPointerOver" Color="#FF353535"/>
+                    <SolidColorBrush x:Key="TextControlBorderBrush" Color="#FF353535"/>
+                    <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="#605ea8"/>
+                    <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="#757cbb"/>
+                    <SolidColorBrush x:Key="ComboBoxBorderBrushPointerOver" Color="#605ea8"/>
+                    <SolidColorBrush x:Key="ComboBoxBorderBrushPressed" Color="#757cbb"/>
+                    <SolidColorBrush x:Key="ComboBoxBorderBrush" Color="Black"/>
+
+                    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillChecked" Color="#757cbb"/>
+                    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillCheckedPressed" Color="#605ea8"/>
+                    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillCheckedPointerOver" Color="#605ea8"/>
+
+                    <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPointerOver" Color="#605ea8"/>
+                    <SolidColorBrush x:Key="ToggleButtonBackgroundPointerOver" Color="#FF353535"/>
+                    <SolidColorBrush x:Key="ToggleButtonForegroundCheckedPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleButtonForegroundPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleButtonBackgroundChecked" Color="#605ea8"/>
+                    <SolidColorBrush x:Key="ToggleButtonBackground" Color="#FF353535"/>
+                    <SolidColorBrush x:Key="ToggleButtonForegroundChecked" Color="White"/>
+                    <SolidColorBrush x:Key="ToggleButtonForeground" Color="LightGray"/>
+
+                    <SolidColorBrush x:Key="MenuDarkGrey" Color="#FF353535" />
+                    <SolidColorBrush x:Key="MenuLightGrey" Color="#FFEAEAEA" />
+
+
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column ="0" Grid.Row ="0" Background="#FFFAFAFA" BorderThickness="5,5,5,5" BorderBrush="White"/>
+        <Border Grid.Column ="1" Grid.Row ="0"  BorderThickness="1" BorderBrush="#FFA4ABD6" Margin="10,10,10,10"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical" Margin="12,50,13,10" >
+            <ToggleButton x:Name="general_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,25,10,0" Background="#FF353535" Foreground="LightGray" Click="general_button_Click" IsChecked="True">
+                <TextBlock Text="General" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="16" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+            <ToggleButton x:Name="ms2_library_search_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,8,10,0" Background="#FF353535" Foreground="LightGray" Click="ms2_library_search_button_Click">
+                <TextBlock Text="MS2 Library Search" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="14" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+            <ToggleButton x:Name="element_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,8,10,0" Background="#FF353535" Foreground="LightGray" Click="element_button_Click">
+                <TextBlock Text="Chemical Element" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="14" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+            <ToggleButton x:Name="formulaDB_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,8,10,0" Background="#FF353535" Foreground="LightGray" Click="formulaDB_button_Click">
+                <TextBlock Text="Chemical Database" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="14" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+            <ToggleButton x:Name="candidate_refinement_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,8,10,0" Background="#FF353535" Foreground="LightGray" Click="candidate_refinement_button_Click">
+                <TextBlock Text="Candidate Refinement" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="14" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+            <ToggleButton x:Name="adduct_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,8,10,0" Background="#FF353535" Foreground="LightGray" Click="adduct_button_Click">
+                <TextBlock Text="Adduct" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="15" CharacterSpacing="14" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+            <ToggleButton x:Name="raw_data_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,8,10,0" Background="#FF353535" Foreground="LightGray" Click="raw_data_button_Click">
+                <TextBlock Text="Raw Data Processing" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="14" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+            <ToggleButton x:Name="others_button" HorizontalAlignment="Stretch" Height="50" CornerRadius="4,4,4,4" Margin="10,8,10,0" Background="#FF353535" Foreground="LightGray" Click="others_button_Click">
+                <TextBlock Text="Others" TextWrapping="WrapWholeWords" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="15" CharacterSpacing="14" LineStackingStrategy="BlockLineHeight" LineHeight="17"/>
+            </ToggleButton>
+
+        </StackPanel>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="22" Text="Advanced Settings" Margin="10,15,10,10" HorizontalAlignment="Center"/>
+
+        <ScrollViewer x:Name="general_panel" Grid.Row="0" Grid.Column="1" Margin="20,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10,5,0,0">
+                    <TextBlock FontSize="20" Text="Task" Margin="5,0,10,0" TextWrapping="Wrap" FontWeight="SemiBold"/>
+                    <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="MS2LibrarySearch_checkbox" Margin="10,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" />
+                        <TextBlock FontSize="16" Text="MS2 library search" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="Identified metabolites serve as seed metabolites for downstream analysis."/>
+                    </StackPanel>
+                    <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="BUDDY_checkbox" Margin="10,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="BUDDY_checkbox_Click"/>
+                        <TextBlock FontSize="16" Text="Bottom-up MS2 interrogation" Margin="0,0,10,0"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="ExpSpecificGlobalAnnotation_checkbox" Margin="10,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="ExpSpecificGlobalAnnotation_checkbox_Click"/>
+                        <TextBlock FontSize="16" Text="Experiment-specific global annotation" Margin="0,0,10,0"  VerticalAlignment="Center"/>
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="BUDDY is able to perform experiment-specific global annotation if there are sufficient query metabolic features (>50) from the same LC-MS run. Note that annotation results will be displayed once all the query features in this file are completed."/>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel Margin="10,5,30,5" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,5,0,0">                
+                    <TextBlock FontSize="18" Text="Mass Tolerance" Margin="0,0,10,0" TextWrapping="Wrap" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="The allowed mass deviation between experimental masses and theoretical masses. It will be doubled when comparing two experimental masses (e.g., MS2 library search)."/>
+                </StackPanel>
+                <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="MS instrument:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="ms_instrument_selection" Margin="0,0,0,0" SelectionChanged="ms_instrument_selection_SelectionChanged" PlaceholderText="Select MS instrument" CornerRadius="4">
+                        <x:String>FT-ICR</x:String>
+                        <x:String>Orbitrap</x:String>
+                        <x:String>QTOF</x:String>
+                        <x:String>QqQ / IonTrap</x:String>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="MS1 mass tolerance:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="ms1tol_box" Margin="0,0,15,0" CornerRadius="4" VerticalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="Da" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                    <ToggleSwitch x:Name="ms1tol_switch" OnContent="" OffContent="" Toggled="ms1tol_switch_Toggled" Padding="0" Margin="0,-5,0,-5"/>
+                    <TextBlock FontSize="16" Text="ppm" Margin="-110,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="10,8,10,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="MS2 mass tolerance:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="ms2tol_box" Margin="0,0,15,0" CornerRadius="5" VerticalAlignment="Center"/>
+                    <TextBlock FontSize="16" Text="Da" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                    <ToggleSwitch x:Name="ms2tol_switch" OnContent="" OffContent="" Toggled="ms2tol_switch_Toggled" Padding="0" Margin="0,-5,0,-5"/>
+                    <TextBlock FontSize="16" Text="ppm" Margin="-110,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="10,5,30,5" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="18" Text="MS2 Preprocessing" Margin="10,5,10,0" TextWrapping="Wrap" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="not applied on MS2 library search"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="use_topFrag_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="use_topFrag_checkbox_Click"/>
+                    <TextBlock FontSize="16" Text="Use top" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                    <TextBox x:Name="topFrag_box" Margin="0,0,10,0" CornerRadius="5"/>
+                    <TextBlock FontSize="16" Text="fragment(s)" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="Fragments are sorted by intensities from high to low."/>
+                    <TextBlock FontSize="16" Text="or" Margin="20,0,10,0"  VerticalAlignment="Center" />
+                    <CheckBox x:Name="use_allFrag_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="use_allFrag_checkbox_Click"/>
+                    <TextBlock FontSize="16" Text="Use all fragments" Margin="0,0,10,0"  VerticalAlignment="Center"/>
+                </StackPanel>
+                <!--<StackPanel Margin="10,10,30,10" BorderBrush="#FFA4ABD6" BorderThickness="1"/>-->
+
+                <!--<TextBlock FontSize="20" Text="MS2 Deisotope" Margin="10,0,10,0" TextWrapping="Wrap" />-->
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="ms2Deisotope_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="16" Text="Apply MS2 deisotope" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                </StackPanel>
+                <!--<StackPanel Margin="10,10,30,10" BorderBrush="#FFA4ABD6" BorderThickness="1"/>-->
+
+                <!--<TextBlock FontSize="20" Text="MS2 Noise Reduction" Margin="10,0,10,0" TextWrapping="Wrap" />-->
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="ms2Denoise_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" />
+                    <TextBlock FontSize="16" Text="Apply MS2 noise reduction" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel Margin="40,5,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="Maximum noise peak intensity:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="maxNoiseInt_box" Margin="0,0,20,0" CornerRadius="5"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="The maximum absolute noise peak intensity allowed. This parameter is highly instrument-dependent."/>
+                </StackPanel>
+                <StackPanel Margin="40,5,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="Maximum RSD of noise peak intensities:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="maxNoiseRSD_box" Margin="0,0,10,0" CornerRadius="5"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="The maximum allowed RSD of noise peak intensities in each MS2 spectrum. 0.20-0.30 is recommended."/>
+                </StackPanel>
+                <StackPanel Margin="40,5,10,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="Maximum noise peak count percentage:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="maxNoiseFragRatio_box" Margin="0,0,10,0" CornerRadius="5" />
+                    <TextBlock FontSize="16" Text="%" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="The maximum ion-count percentage of noise peaks allowed in each MS2 spectrum. 50-80% is recommended."/>
+                </StackPanel>
+
+                <StackPanel Margin="10,5,10,5" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <!--<TextBlock FontSize="20" Text="Experiment-Specific Prediction" Margin="10,0,10,0" TextWrapping="Wrap" />-->
+                <!--<StackPanel Margin="10,5,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="ExpSpecificGlobalAnnotation_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="16" Text="Apply experiment-specific annotation" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    
+                </StackPanel>-->
+                <!--<TextBlock FontSize="15" Text="BUDDY is able to perform experiment-specific predictions if there are sufficient query metabolic features (>50) from the same LC-MS run. Note that prediction results will be displayed once all the query features in this file are completed."
+                           Margin="35,10,10,0" Foreground="#FF5D5D5D" TextWrapping="Wrap" Width="550" CharacterSpacing="14"/>-->
+
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="MetaScore_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="16" Text="Include meta-scores for annotation" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="Annotations will be made considering the formula appearance frequency in current chemical databases."/>
+                </StackPanel>
+
+
+                <!--<StackPanel Margin="10,20,30,20" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="22" Text="Timeout" Margin="10,0,10,0" TextWrapping="Wrap" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="22" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="The rough timeout (inaccurate due to parallel processing) to compute each MS2."/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="timeout_single_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="Timeout for a single MS2:" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                        <TextBox x:Name="timeout_single_box" Margin="0,0,0,0"/>
+                        <TextBlock FontSize="17" Text="s" Margin="5,4,10,0"/>
+
+                    </StackPanel>
+
+                </StackPanel>-->
+            </StackPanel>
+        </ScrollViewer>
+        
+        <ScrollViewer x:Name="ms2_library_search_panel" Grid.Row="0" Grid.Column="1" Margin="20,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel>
+                <TextBlock FontSize="18" Text="MS2 Library Search" Margin="10,5,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="30,15,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="MS2 database" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                    <TextBlock  x:Name="loadedMS2DB_text" FontSize="14" Margin="30,0,0,0" Foreground="#FF5D5D5D" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,10,0,0" Orientation="Horizontal" VerticalAlignment="Center" >
+                    <CheckBox x:Name="useCustomMS2DB_checkbox" Margin="20,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" />
+                    <TextBlock FontSize="15" Text="Use uploaded MS2 DB" Margin="5,0,10,0" VerticalAlignment="Center"/>
+                    <Button Content="Upload MS2 DB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Width="140" FontSize="14" 
+                            CornerRadius="3,3,3,3" Click="UploadMS2DB_Click" Margin="20,0,0,0" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="18" Foreground="#FF9B9B9B" Margin="5,0,0,0"
+                               ToolTipService.ToolTip="Please upload a database in msp format."/>
+                </StackPanel>
+                <TextBlock FontSize="14" Text="Fiehn HILIC MS2 DB will be used by default."
+                           Margin="80,8,10,0" Foreground="#FF5D5D5D" TextWrapping="Wrap" CharacterSpacing="14"/>
+
+                <StackPanel Margin="10,15,10,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="MS2 searching algorithm:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="ms2MatchingAlgorithm_selection" Margin="0,0,0,0" SelectionChanged="ms2DB_selection_SelectionChanged" PlaceholderText="Select algorithm" CornerRadius="4">
+                        <x:String>Dot product</x:String>
+                        <x:String>Reverse dot product</x:String>
+                        <x:String>Spectral entropy similarity</x:String>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="10,5,30,5" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <TextBlock FontSize="18" Text="Metabolite Annotation Threshold" Margin="10,5,10,0" TextWrapping="Wrap" />
+
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="16" Text="MS2 similarity score:" Margin="20,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="metaboliteIdentificationMS2SimilarityScoreThreshold_box" Margin="0,0,15,0" CornerRadius="4" VerticalAlignment="Center" />
+                    <TextBlock FontSize="14" Text="Recommendation:"       Margin="5,0,10,0" Foreground="#FF5D5D5D" VerticalAlignment="Center" CharacterSpacing="14"/>
+                    <TextBlock  x:Name="recommendedMetaIdenMS2Score_text" FontSize="14" Margin="0,0,0,0" Foreground="#FF5D5D5D" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="metaboliteIdentificationMS2MinMatchedFrag_checkbox" Margin="20,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" />
+                    <TextBlock FontSize="16" Text="Minimum matched fragment count:" Margin="5,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="metaboliteIdentificationMS2MinMatchedFragNo_box" Margin="0,0,15,0" CornerRadius="4" VerticalAlignment="Center" />
+                    <TextBlock FontSize="14" Text="Recommendation:"       Margin="5,0,10,0" Foreground="#FF5D5D5D" VerticalAlignment="Center" CharacterSpacing="14"/>
+                    <TextBlock  x:Name="recommendedMetaIdenMS2MinMatchedFragNo_text" FontSize="14" Margin="0,0,0,0" Foreground="#FF5D5D5D" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="metaboliteIdentificationRT_checkbox" Margin="20,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" />
+                    <TextBlock FontSize="16" Text="Retention time tolerance:" Margin="5,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="metaboliteIdentificationRTtol_box" Margin="0,0,5,0" CornerRadius="4" VerticalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="min" Margin="5,0,10,0" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock FontSize="14" Text="This only works for MS2 databases with valid RT records."
+                           Margin="60,8,10,0" Foreground="#FF5D5D5D" TextWrapping="Wrap" CharacterSpacing="14"/>
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="element_panel" Grid.Row="0" Grid.Column="1" Margin="20,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="18" Text="Element List" Margin="10,0,10,0" TextWrapping="Wrap"/>
+                <StackPanel Margin="55,10,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock FontSize="18" Text="Min value" Margin="0,0,0,0" FontWeight="SemiBold"/>
+                    <TextBlock FontSize="18" Text="Max value" Margin="205,0,0,0" FontWeight="SemiBold"/>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Vertical" VerticalAlignment="Center">
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_C_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="C" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minC_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" VerticalAlignment="Center" Text="{Binding RangeStart, ElementName=C_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="C_RangeSelector" Minimum="0" Maximum="120" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxC_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=C_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_H_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="H" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minH_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=H_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="H_RangeSelector" Minimum="0" Maximum="250" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxH_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=H_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_N_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="N" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minN_box"  CornerRadius="5"  MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=N_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="N_RangeSelector" Minimum="0" Maximum="30" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxN_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=N_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_O_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="O" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minO_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=O_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="O_RangeSelector" Minimum="0" Maximum="50" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxO_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=O_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_P_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="P" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minP_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=P_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="P_RangeSelector" Minimum="0" Maximum="20" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxP_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=P_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_S_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="S" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minS_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=S_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="S_RangeSelector" Minimum="0" Maximum="25" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxS_box" CornerRadius="5" MinWidth="50"  Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=S_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <CheckBox x:Name="ele_F_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="F" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minF_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=F_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="F_RangeSelector" Minimum="0" Maximum="30" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxF_box" CornerRadius="5" MinWidth="50"  Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=F_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_Cl_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="Cl" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minCl_box" CornerRadius="5" MinWidth="50"  Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=Cl_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="Cl_RangeSelector" Minimum="0" Maximum="25" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxCl_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=Cl_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_Br_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="Br" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minBr_box" CornerRadius="5" MinWidth="50"  Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=Br_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="Br_RangeSelector" Minimum="0" Maximum="20" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxBr_box" CornerRadius="5"  MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=Br_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_I_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="I" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minI_box" CornerRadius="5"  MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=I_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="I_RangeSelector" Minimum="0" Maximum="20" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxI_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=I_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_Si_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="Si" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minSi_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=Si_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="Si_RangeSelector" Minimum="0" Maximum="25" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxSi_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=Si_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_B_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="B" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minB_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=B_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="B_RangeSelector" Minimum="0" Maximum="20" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxB_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=B_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,5,10,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox x:Name="ele_Se_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                        <TextBlock FontSize="17" Text="Se" Margin="0,0,0,0" VerticalAlignment="Center" Width="20"/>
+                        <TextBox x:Name="minSe_box" CornerRadius="5" MinWidth="50" Margin="30,0,20,0" Text="{Binding RangeStart, ElementName=Se_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                        <controls:RangeSelector x:Name="Se_RangeSelector" Minimum="0" Maximum="20" StepFrequency="1" Width="200" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#757cbb">
+                            <controls:RangeSelector.Resources>
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#757cbb" />
+                            </controls:RangeSelector.Resources>
+                        </controls:RangeSelector>
+                        <TextBox x:Name="maxSe_box" CornerRadius="5" MinWidth="50" Margin="20,0,20,0" Text="{Binding RangeEnd, ElementName=Se_RangeSelector, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:0.##}'}"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="fdb_res_panel" Grid.Row="0" Grid.Column="1" Margin="10,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="20" Text="Chemical Database Restriction" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <TextBlock FontSize="15" Text="Molecular formulae will be annotated within the selected chemical databases."
+                           Margin="0,10,10,0" Foreground="#FF5D5D5D" TextWrapping="Wrap" Width="550" CharacterSpacing="14"/>
+                <StackPanel Padding="10,5,10,5" Margin="0,10,20,0" Orientation="Horizontal" VerticalAlignment="Center" BorderBrush="#757cbb" BorderThickness="0" CornerRadius="5,5,5,5">
+                    <CheckBox x:Name="noResDB_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="noResDB_checkbox_Click"/>
+                    <TextBlock FontSize="17" Text="No chemical database restriction" Margin="0,0,0,0" VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="5,0,0,0"
+                               ToolTipService.ToolTip="If checked, the databases selected below will be ignored."/>
+                </StackPanel>
+                <StackPanel Margin="10,5,0,5" BorderBrush="#FFA4ABD6" BorderThickness="1" Width="300" HorizontalAlignment="Left"/>
+
+                <StackPanel Padding="10,5,10,5" Margin="20,0,20,0" Orientation="Horizontal" VerticalAlignment="Center" BorderBrush="#757cbb" BorderThickness="0" CornerRadius="5,5,5,5">
+                    <CheckBox x:Name="pubchem_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="pubchem_checkbox_Click"/>
+                    <TextBlock FontSize="17" Text="PubChem" Margin="0,0,0,0"  VerticalAlignment="Center"  FontWeight="SemiBold"/>
+                    <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/pubchem.png"/>
+                </StackPanel>
+
+                <StackPanel Padding="10,5,10,5" Margin="20,0,0,0" Orientation="Vertical" BorderBrush="#757cbb" BorderThickness="0" CornerRadius="5,5,5,5">
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="mtb_lpd_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="mtb_lpd_checkbox_Click"/>
+                        <TextBlock FontSize="17" Text="Metabolites &amp; Lipids" Margin="0,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel Margin="20,0,0,0" Orientation="Horizontal">
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="BMDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="BMDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/bmdb.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="FooDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="FooDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/foodb.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="LMSD_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="LMSD" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/lmsd.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="PlantCyc_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="PlantCyc" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="20" Margin="10,0,0,4" Source="ms-appx:///Image/plantcyc.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="ChEBI_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="ChEBI" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/chebi.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="HMDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="HMDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/hmdb.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="MarkerDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="MarkerDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="SMPDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="SMPDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/smpdb.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="ECMDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="ECMDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/ecmbd.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="KEGG_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="KEGG" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/kegg.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="MCDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="MCDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/mcdb.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="YMDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="YMDB" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Padding="10,5,10,5" Margin="20,0,0,0" Orientation="Vertical" BorderBrush="#757cbb" BorderThickness="0" CornerRadius="5,5,5,5">
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="drug_txn_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="drug_txn_checkbox_Click"/>
+                        <TextBlock FontSize="17" Text="Drugs &amp; Toxins" Margin="0,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel Margin="20,0,0,0" Orientation="Horizontal">
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="DrugBank_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="DrugBank" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/drugbank.png"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="T3DB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="T3DB" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/t3db.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="DSSTOX_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="DSSTOX" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="TTD_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="TTD" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                                <Image Height="20" Margin="10,0,0,0" Source="ms-appx:///Image/ttd.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="HSDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="HSDB" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Padding="10,5,10,5" Margin="20,0,0,0" Orientation="Vertical" BorderBrush="#757cbb" BorderThickness="0" CornerRadius="5,5,5,5">
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="natProducts_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="natProducts_checkbox_Click"/>
+                        <TextBlock FontSize="17" Text="Natural Products" Margin="0,0,0,0"  VerticalAlignment="Center"  FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel Margin="20,0,0,0" Orientation="Horizontal">
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="ANPDB_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="ANPDB" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="UNPD_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="UNPD" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="COCONUT_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="COCONUT" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                                <Image Height="25" Margin="10,0,0,4" Source="ms-appx:///Image/coconut.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="NPASS_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="NPASS" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Padding="10,5,10,5" Margin="20,0,0,0" Orientation="Vertical" BorderBrush="#757cbb" BorderThickness="0" CornerRadius="5,5,5,5">
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="xbiotics_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="xbiotics_checkbox_Click"/>
+                        <TextBlock FontSize="17" Text="Xenobiotics" Margin="0,0,0,0"  VerticalAlignment="Center"  FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel Margin="20,0,0,0" Orientation="Horizontal">
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="BLEXP_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="BLEXP" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="NORMAN_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="NORMAN" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                                <Image Height="18" Margin="10,0,0,0" Source="ms-appx:///Image/norman.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="STF_IDENT_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="STOFF-IDENT" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/stoffident.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Padding="10,5,10,5" Margin="20,0,0,0" Orientation="Vertical" BorderBrush="#757cbb" BorderThickness="0" CornerRadius="5,5,5,5">
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox x:Name="contaminants_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="contaminants_checkbox_Click"/>
+                        <TextBlock FontSize="17" Text="Contaminants" Margin="0,0,0,0"  VerticalAlignment="Center"  FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel Margin="20,0,0,0" Orientation="Horizontal">
+                        <StackPanel Margin="0,0,0,0" Orientation="Vertical" Width="200">
+                            <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <CheckBox x:Name="MaConDa_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                                <TextBlock FontSize="17" Text="MaConDa" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                                <Image Height="25" Margin="10,0,0,0" Source="ms-appx:///Image/maconda.png"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <!--<StackPanel Margin="20,20,30,20" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <TextBlock FontSize="22" Text="Custom Formula Database" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="30,10,0,20" Orientation="Horizontal">
+                    <Button Content="Download Demo" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="35" 
+                        FontSize="14" CornerRadius="5,5,5,5" Click="DownloadDemoDB_Click" Margin="0,0,20,0"/>
+                    <Button Content="Import Database" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="35" 
+                        FontSize="14" CornerRadius="5,5,5,5" Click="ImportDB_Click" Margin="0,0,20,0"/>
+                    <TextBlock FontSize="15" Text="demo.csv" TextAlignment="Center" Margin="0,7,0,0"/>
+                </StackPanel>-->
+
+            </StackPanel>
+        </ScrollViewer>
+        
+        <ScrollViewer x:Name="candidate_refinement_panel" Grid.Row="0" Grid.Column="1" Margin="10,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+
+                <TextBlock FontSize="18" Text="MS1 Isotopic Pattern" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="10,10,10,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="isp_sim_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="MS1 isotope similarity cutoff:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="isp_sim_box" CornerRadius="5" Margin="0,0,10,0"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" 
+                               ToolTipService.ToolTip="Isotope similarity between experimental isotopic patterns and theoretical isotopic patterns of predicted molecular formulae."/>
+                </StackPanel>
+
+                <StackPanel Margin="10,5,10,5" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+
+                <TextBlock FontSize="18" Text="Candidate Retrieval" Margin="10,10,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="10,10,10,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="use_topCandidates_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="use_topCandidates_checkbox_Click"/>
+                    <TextBlock FontSize="15" Text="Use top:" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                    <TextBox x:Name="topCandidates_box" CornerRadius="5"  Margin="0,0,10,0" MinWidth="60"/>
+                    <TextBlock FontSize="15" Text="candidate(s)" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                    <CheckBox x:Name="use_allCandidates_checkbox" Margin="70,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Click="use_allCandidates_checkbox_Click"/>
+                    <TextBlock FontSize="15" Text="Use all" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                </StackPanel>
+                <!--<StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="expMS2fragNum_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="17" Text="Explained MS2 fragment number:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="expMS2fragNum_box" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontSize="17" Text="%" Margin="5,4,10,0"/>
+                </StackPanel>
+                <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="expMS2fragInt_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="17" Text="Explained MS2 fragment intensity:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="expMS2fragInt_box" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontSize="17" Text="%" Margin="5,4,10,0"/>
+                </StackPanel>
+                <TextBlock FontSize="15" Text="Candidate formulae satisfying either of the above requirements (explained MS2 fragment number or explained MS2 fragment intensity) will be kept."
+                           Margin="35,10,10,0" Foreground="#FF5D5D5D" TextWrapping="Wrap" Width="550" CharacterSpacing="14"/>-->
+
+                <StackPanel Margin="10,5,10,15" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="18" Text="Elemental Ratio Restriction" Margin="10,0,10,0" TextWrapping="Wrap" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" 
+                               ToolTipService.ToolTip="For more details, please see reference: Kind, T., &amp; Fiehn, O. (2007). Seven Golden Rules for heuristic filtering of molecular formulas obtained by accurate mass spectrometry. BMC bioinformatics, 8(1), 1-20."/>
+                </StackPanel>
+
+                <StackPanel Margin="40,15,20,8" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <CheckBox x:Name="h_c_ratio_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="H/C" Margin="0,0,10,0" VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="h_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="h_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <CheckBox x:Name="f_c_ratio_checkbox" Margin="50,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="F/C" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="f_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="f_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                </StackPanel>
+                <StackPanel Margin="40,0,20,8" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <CheckBox x:Name="o_c_ratio_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="O/C" Margin="0,0,10,0" VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="o_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="o_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <CheckBox x:Name="cl_c_ratio_checkbox" Margin="50,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="Cl/C" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="cl_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="cl_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                </StackPanel>
+                <StackPanel Margin="40,0,20,8" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <CheckBox x:Name="n_c_ratio_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="N/C" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="n_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="n_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <CheckBox x:Name="br_c_ratio_checkbox" Margin="50,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="Br/C" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="br_c_ratio_box1" CornerRadius="5"  Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="br_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                </StackPanel>
+                <StackPanel Margin="40,0,20,8" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <CheckBox x:Name="p_c_ratio_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="P/C" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="p_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="p_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <CheckBox x:Name="si_c_ratio_checkbox" Margin="50,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="Si/C" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="si_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="si_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                </StackPanel>
+                <StackPanel Margin="40,0,20,10" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <CheckBox x:Name="s_c_ratio_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="S/C" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15" Width="35"/>
+                    <TextBox x:Name="s_c_ratio_box1" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" Margin="10,0,10,0" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="s_c_ratio_box2" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <CheckBox x:Name="o_p_ratio_checkbox" Margin="50,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="O &#x2265; 3 * P" Margin="0,0,10,0"  VerticalAlignment="Center" CharacterSpacing="15"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="adduct_panel" Grid.Row="0" Grid.Column="1" Margin="10,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock FontSize="20" Text="Adduct List" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <StackPanel Padding="10,0,10,10" Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,10" Width="300">
+                        <TextBlock Text="Positive Ion Mode" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,10"/>
+                        <ListView x:Name="pos_adduct_listview" BorderThickness="1" BorderBrush="#FF353535" SelectionMode="Extended"
+                                  Width="250" Height="300" HorizontalAlignment="Center" VerticalAlignment="Top" ItemsSource="{x:Bind adductList_Pos}" IsItemClickEnabled="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Formula}" Margin="10,0,10,0" FontSize="15" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,10" Width="300">
+                        <TextBlock Text="Negative Ion Mode" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,10"/>
+                        <ListView x:Name="neg_adduct_listview" BorderThickness="1" BorderBrush="#FF353535" SelectionMode="Extended"
+                                  Width="250" Height="300" HorizontalAlignment="Center" VerticalAlignment="Top" ItemsSource="{x:Bind adductList_Neg}" IsItemClickEnabled="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Formula}" Margin="10,0,10,0" FontSize="15" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,10,10">
+                    <Button Content="Delete Selected" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="35" Width="160"
+                FontSize="15" CornerRadius="5,5,5,5" Click="DeleteSelectedAdducts_Click" Margin="0,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,5,10,10" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <TextBlock FontSize="20" Text="Custom Adduct" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="40,15,0,0" Orientation="Horizontal">
+                    <TextBox x:Name="custom_adduct_box" CornerRadius="5" CharacterCasing="Upper" PlaceholderText="e.g. [M+C2H7O]+" TextAlignment="Left" 
+                             Margin="0,0,20,0" Width="200" VerticalContentAlignment="Center"/>
+                    <Button Content="Add To List" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="35" 
+                        FontSize="15" CornerRadius="5,5,5,5" Click="AddAdductToList_Click" Margin="10,0,0,0" Width="120"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="raw_data_panel" Grid.Row="0" Grid.Column="1" Margin="10,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock FontSize="15" Text="For feature tables from MS-DIAL:" 
+                           Margin="10,0,20,0" TextWrapping="Wrap" Width="600" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="22" Foreground="#FF5D5D5D" />
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="featureClusterMsdial_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="15" Text="Metabolic feature clustering" Margin="0,0,0,0" VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="10,0,0,0"
+                               ToolTipService.ToolTip="Metabolic features representing the same metabolite are grouped."/>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,10" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <TextBlock FontSize="15" Text="For mzML files collected in DDA mode:" 
+                           Margin="10,0,20,0" TextWrapping="Wrap" Width="600" CharacterSpacing="15" LineStackingStrategy="BlockLineHeight" LineHeight="22" Foreground="#FF5D5D5D" />
+                <TextBlock FontSize="17" Text="MS1 Isotope" Margin="10,10,10,0" TextWrapping="Wrap" />
+
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Maximum isotopic peaks:" Margin="20,0,10,0"  VerticalAlignment="Center"/>
+                    <TextBox x:Name="max_ispPeaks_box" CornerRadius="5" Margin="0,0,20,0" MinWidth="50"/>
+                    <TextBlock FontSize="15" Text="Isotopic abundance cutoff:" Margin="15,0,10,0"  VerticalAlignment="Center"/>
+                    <TextBox x:Name="ispAbundance_cut_box" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontSize="15" Text="%" Margin="5,0,10,0"  VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Margin="10,8,10,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Isotopologue grouping mass tolerance:" Margin="20,0,10,0"  VerticalAlignment="Center"/>
+                    <TextBox x:Name="isp_group_masstol_box" CornerRadius="5" Margin="0,0,0,0" MinWidth="50"/>
+                    <TextBlock FontSize="15" Text="Da" Margin="5,0,10,0"  VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <!--<StackPanel Margin="10,5,10,15" BorderBrush="#FFA4ABD6" BorderThickness="1"/>-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="17" Text="MS2 Grouping" Margin="10,10,10,0" TextWrapping="Wrap" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" 
+                               ToolTipService.ToolTip="Adjacent MS2 belonging to the same metabolic feature are grouped."/>
+                </StackPanel>
+                <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="ms2Group_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Unchecked="ms2Group_checkbox_Unchecked"/>
+                    <TextBlock FontSize="15" Text="Apply MS2 grouping" Margin="0,0,0,0"  VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Cosine similarity cutoff:" Margin="50,0,10,0"  VerticalAlignment="Center" />
+                    <TextBox x:Name="cosSim_cut_box" CornerRadius="5" Margin="0,0,20,0" MinWidth="50"/>
+                    <TextBlock FontSize="15" Text="Maximum peak width:" Margin="20,0,10,0"  VerticalAlignment="Center"/>
+                    <TextBox x:Name="max_peakWidth_box" CornerRadius="5"  Margin="0,0,0,0" MinWidth="60"/>
+                    <TextBlock FontSize="15" Text="s" Margin="5,0,10,0"  VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="10,8,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="ms2Merge_checkbox" Margin="20,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0" Checked="ms2Merge_checkbox_Checked"/>
+                    <TextBlock FontSize="15" Text="Apply MS2 merging" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" 
+                               ToolTipService.ToolTip="If MS2 merging is not applied, the most abundant MS2 for each metabolic feature will be used."/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="others_panel" Grid.Row="0" Grid.Column="1" Margin="10,70,0,70" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock FontSize="18" Text="Timeout" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="timeout_single_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="16" Text="Timeout for a single query:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="timeout_single_box" CornerRadius="5" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                    <TextBlock FontSize="16" Text="s" Margin="5,0,10,0" VerticalAlignment="Center"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE946;" FontSize="20" Foreground="#FF9B9B9B" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="The rough timeout to compute each MS2. (imprecise due to prallell processing)"/>
+                </StackPanel>
+                <!--<StackPanel Margin="10,10,10,10" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <TextBlock FontSize="20" Text="Experiment-Specific Prediction" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="ExpSpecificGlobalAnnotation_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="17" Text="Apply" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock FontSize="15" Text="BUDDY is able to perform experiment-specific predictions if there are sufficient query metabolic features (>50) from the same LC-MS run. Note that prediction results will be displayed once all the query features in this file are completed."
+                           Margin="35,10,10,0" Foreground="#FF5D5D5D" TextWrapping="Wrap" Width="550" CharacterSpacing="14"/>-->
+                <StackPanel Margin="10,10,10,10" BorderBrush="#FFA4ABD6" BorderThickness="1"/>
+                <TextBlock FontSize="18" Text="MS2 Fragment Reannotation" Margin="10,0,10,0" TextWrapping="Wrap" />
+                <StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="MS2FragReannotate_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="16" Text="Apply" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock FontSize="14" Text="In case that some fragment peaks are unexplained during the first-round search, you can check here to reannotate those fragments given the current candidate formula. Note that this will slow down the computation process and will NOT affect formula determination results."
+                           Margin="35,8,10,0" Foreground="#FF5D5D5D" TextWrapping="Wrap" Width="550" CharacterSpacing="14"/>
+                <!--<StackPanel Margin="10,10,10,0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="timeout_batch_checkbox" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" MinWidth="0"/>
+                    <TextBlock FontSize="17" Text="Timeout for batch computation:" Margin="0,0,10,0"  VerticalAlignment="Center" />
+                    <TextBox x:Name="timeout_batch_box" CornerRadius="5" Margin="0,0,0,0"/>
+                    <TextBlock FontSize="17" Text="hr" Margin="5,4,10,0"/>
+                </StackPanel>-->
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,10,10,10" Padding="10,10,10,10" 
+                    BorderThickness="1,1,0,0" BorderBrush="#FFA4ABD6" Background="White">
+            <Button Content="Apply" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="35" Width="120" 
+                FontSize="15" CornerRadius="5,5,5,5" Click="ADV_Apply" Margin="25,0,20,0"/>
+            <Button Content="Cancel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="35" Width="120" 
+                FontSize="15" CornerRadius="5,5,5,5" Click="ADV_Cancel" Margin="20,0,15,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Margin="10,10,10,10" Padding="10,10,10,10">
+            <Button Content="Restore Default" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="35" Width="160" 
+                FontSize="15" CornerRadius="5,5,5,5" Click="ADV_Restore" Margin="12,0,20,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
