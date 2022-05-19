@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="11888HuanLab.BUDDYMetabolomics"
-    Publisher="CN=BF639237-C931-4817-9E36-DB2B541C7150"
-    Version="1.0.128.0" />
+    Name="30450ShipeiXing.MetabolomicsBUDDY"
+    Publisher="CN=81127E9F-F572-4D50-8CD3-BB12084AA479"
+    Version="1.0.137.0" />
 
-  <mp:PhoneIdentity PhoneProductId="64fcf5ea-eb2d-4a5d-87c0-b21d44c322ff" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="b3234896-1f0c-424e-8248-a9453c15352c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>BUDDY Metabolomics</DisplayName>
-    <PublisherDisplayName>Huan Lab</PublisherDisplayName>
+    <DisplayName>Metabolomics BUDDY</DisplayName>
+    <PublisherDisplayName>Shipei Xing</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,8 +32,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="BUDDY.App">
       <uap:VisualElements
-        DisplayName="BUDDY Metabolomics"
-        Description="BUDDY is a cheminformatic tool developed for metabolomics." BackgroundColor="transparent" Square44x44Logo="Assets\Square44x44Logo.png" Square150x150Logo="Assets\Square150x150Logo.png">
+        DisplayName="Metabolomics BUDDY"
+        Description="BUDDY is a cheminformatic tool developed for MS-based metabolomics." BackgroundColor="transparent" Square44x44Logo="Assets\Square44x44Logo.png" Square150x150Logo="Assets\Square150x150Logo.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"  Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
         </uap:DefaultTile >
         <uap:SplashScreen BackgroundColor="#605EA8" Image="Assets\SplashScreenHandWritten.png"/>

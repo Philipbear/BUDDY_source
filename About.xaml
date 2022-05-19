@@ -27,7 +27,7 @@
             <TextBlock  x:Name="Citation_textbox" Text="Citation: " VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,15,0,0" CharacterSpacing="15"
                    Foreground="White" FontSize="18" FontWeight="SemiBold">
             </TextBlock>
-            <TextBox Text="S. Xing, S. Shen, B. Xu, T. Huan, Bottom-up MS/MS interrogation illuminates unrecognized metabolites with significance control. bioRxiv 2022." 
+            <TextBox Text="S. Xing, S. Shen, B. Xu, T. Huan. Molecular formula discovery via bottom-up MS/MS interrogation. bioRxiv 2022." 
                        VerticalAlignment= "Top" HorizontalAlignment="Stretch" Margin="10,7,0,0" TextWrapping="Wrap" CharacterSpacing="15"
                    Foreground="White" FontSize="18"  IsReadOnly="True"  BorderThickness="0" Background="Transparent" >
                 <TextBox.Resources>
