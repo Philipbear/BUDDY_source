@@ -15,7 +15,7 @@
             <TextBlock Text="Current version:    BUDDY 1.0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0" CharacterSpacing="15"
                    Foreground="white" FontSize="18">
             </TextBlock>
-            <TextBlock Text="Last update:    May 20, 2022" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,15,0,0"  CharacterSpacing="15"
+            <TextBlock Text="Last update:    May 30, 2022" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,15,0,0"  CharacterSpacing="15"
                    Foreground="White" FontSize="18">
             </TextBlock>
             <TextBlock Text="Authors:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,15,0,0" CharacterSpacing="15"

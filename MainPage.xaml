@@ -584,7 +584,7 @@
                                            HorizontalHeaderContentAlignment="Center" Width="90" TextAlignment="Center">
                         <syncfusion:GridNumericColumn.HeaderTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Post. P" ToolTipService.ToolTip="Posterior probability for a hit calibrated using Platt scaling"/>
+                                <TextBlock Text="Post. P" ToolTipService.ToolTip="Estimated posterior probability for a hit calibrated using Platt scaling"/>
                             </DataTemplate>
                         </syncfusion:GridNumericColumn.HeaderTemplate>
                     </syncfusion:GridNumericColumn>
@@ -592,7 +592,7 @@
                                            HorizontalHeaderContentAlignment="Center" ColumnSizer="AutoWithLastColumnFill" TextAlignment="Center">
                         <syncfusion:GridNumericColumn.HeaderTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Est. FDR" ToolTipService.ToolTip="Estimated FDR (false discovery rate) for top N hits"/>
+                                <TextBlock Text="Est. FDR" ToolTipService.ToolTip="Estimated false discovery rate for top N hits"/>
                             </DataTemplate>
                         </syncfusion:GridNumericColumn.HeaderTemplate>
                     </syncfusion:GridNumericColumn>
@@ -1323,7 +1323,7 @@
                 <muxc:RadioMenuFlyoutItem Text="Small icons" GroupName="SizeGroup"/>
                 <muxc:RadioMenuFlyoutItem Text="Medium icons" IsChecked="True" GroupName="SizeGroup"/>
                 <muxc:RadioMenuFlyoutItem Text="Large icons" GroupName="SizeGroup"/>-->
-                <MenuFlyoutItem Text="Export Single MS2" Click="ExportSingleMS2_Click">
+                <MenuFlyoutItem Text="Export Single Query" Click="ExportSingleMS2_Click">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE72D;"/>
                     </MenuFlyoutItem.Icon>

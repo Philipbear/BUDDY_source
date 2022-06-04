@@ -1554,11 +1554,11 @@ namespace BUDDY
                 return;
             }
 
-            if (customAdduct.Substring(customAdduct.Length - 2) != "]+" && customAdduct.Substring(customAdduct.Length - 2) != "]-")
-            {
-                InvalidCustomAdduct();
-                return;
-            }
+            //if (customAdduct.Substring(customAdduct.Length - 2) != "]+" && customAdduct.Substring(customAdduct.Length - 2) != "]-")
+            //{
+            //    InvalidCustomAdduct();
+            //    return;
+            //}
             try
             {
                 Adduct add = new Adduct(customAdduct);

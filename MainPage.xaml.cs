@@ -884,8 +884,8 @@ namespace BUDDY
             IReadOnlyList<StorageFile> storageFiles = await storageFolder.GetFilesAsync();
             foreach (StorageFile file in storageFiles)
             {
-                if (file.Path.ToString().Contains(".zip") || file.Path.ToString().Contains(".mgf") || file.Path.ToString().Contains(".MGF") || file.Path.ToString().Contains(".mzML") ||
-                    file.Path.ToString().Contains(".txt") || file.Path.ToString().Contains(".TXT") || file.Path.ToString().Contains(".csv") || file.Path.ToString().Contains(".CSV"))
+                if (file.Path.ToString().Contains(".zip") || file.Path.ToString().Contains(".mgf") || file.Path.ToString().Contains(".MGF") || file.Path.ToString().Contains(".mzML") || file.Path.ToString().Contains(".mzml") ||
+                    file.Path.ToString().Contains(".MZML") || file.Path.ToString().Contains(".txt") || file.Path.ToString().Contains(".TXT") || file.Path.ToString().Contains(".csv") || file.Path.ToString().Contains(".CSV"))
                 {
                     await file.DeleteAsync();
                 }
@@ -972,6 +972,7 @@ namespace BUDDY
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
             picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
+            picker.FileTypeFilter.Add(".mzml");
             picker.FileTypeFilter.Add(".mzML");
             picker.FileTypeFilter.Add(".MZML");
             var files = await picker.PickMultipleFilesAsync();
@@ -1364,7 +1365,7 @@ namespace BUDDY
                 //item.Ms2number = parsed.Count.ToString();
                 //ms2model.MS2s.AddRange(MgfParser.ReadMgf(file));
             }
-            else if (item.FileName.Contains(".mzML"))
+            else if (item.FileName.Contains(".mzML") || item.FileName.Contains(".mzml") || item.FileName.Contains(".MZML"))
             {
                 RAW_Measurement mzmlFile = new MzmlReader().ReadMzmlVer2(item.FilePath, 0);
                 string mzmlPolarity;
@@ -2410,6 +2411,8 @@ namespace BUDDY
                                             else // non-seed
                                             {
                                                 if (batchBoosterOutput[m] == null || batchBoosterOutput[m].Count == 0) { continue; }
+
+                                                //List<Feature> thisBUDDYOutput = null;
                                                 List<Feature> thisBUDDYOutput = MLRanking(batchBoosterOutput[m], highResMSData, posIonMode, MS1Available, metaScoreBool);
 
                                                 if (thisBUDDYOutput.Count > 0 && thisBUDDYOutput.Count <= MAX_CANDIDATE_SAVED)
@@ -2708,8 +2711,12 @@ namespace BUDDY
 
                             // Booster main program
                             //List<Feature> thisBoosterOutput = null;
+
+                            // DEBUG
                             List<Feature> thisBoosterOutput = new List<Feature>(await Task.Run(() => BoosterCalculation(ppm, ms1tol, ms2tol, topCandidateNum,
                                                     topcandcut, max_isotopic_peaks, isotopic_abundance_cutoff, isp_grp_mass_tol, restriction, ms2, i, timeout, OPratiocheck)));
+                            //List<Feature> thisBoosterOutput = new List<Feature>(BoosterCalculation(ppm, ms1tol, ms2tol, topCandidateNum,
+                            //                                    topcandcut, max_isotopic_peaks, isotopic_abundance_cutoff, isp_grp_mass_tol, restriction, ms2, i, timeout, OPratiocheck));
 
 
                             bool MS1Available = true;
@@ -2789,7 +2796,7 @@ namespace BUDDY
             List<Feature> boosterOutput = new List<Feature>();
             bool Booster0Redo = true;
 
-            if (ms2.Spectrum.Count == 0) //if no ms2 specturm, run precursor search ONLY function
+            if (ms2.Spectrum.Count == 0 || ms2.adduct.AbsCharge > 1) //if no ms2 specturm, run precursor search ONLY function
             {
                 if (ms2.Polarity == "P")
                 {
@@ -2898,7 +2905,7 @@ namespace BUDDY
                 if (!(bool)localSettings.Values["NoResDB_include"])
                 {
                     //formula db restriction
-                    int targetInd = (int)((ms2.Mz - ms2.Adduct.SumFormula.mass) / ms2.Adduct.M / GROUP_MZ_RANGE);
+                    int targetInd = (int)((ms2.Mz * ms2.Adduct.AbsCharge - ms2.Adduct.SumFormula.mass) / ms2.Adduct.M / GROUP_MZ_RANGE);
                     if (targetInd <= 0 || targetInd >= groupedDB.Count - 1)
                     {
                         return new List<Feature>();
@@ -3086,7 +3093,7 @@ namespace BUDDY
                 else
                 {
                     //No formula db restriction
-                    int targetInd = (int)((ms2.Mz - ms2.Adduct.SumFormula.mass) / ms2.Adduct.M / GROUP_MZ_RANGE);
+                    int targetInd = (int)((ms2.Mz * ms2.Adduct.AbsCharge - ms2.Adduct.SumFormula.mass) / ms2.Adduct.M / GROUP_MZ_RANGE);
                     if (targetInd <= 0 || targetInd >= groupedDB.Count - 1)
                     {
                         return new List<Feature>();
@@ -3200,7 +3207,7 @@ namespace BUDDY
                     if (!(bool)localSettings.Values["NoResDB_include"])
                     {
                         //formula db restriction
-                        int targetInd = (int)((ms2.Mz - ms2.Adduct.SumFormula.mass) / GROUP_MZ_RANGE);
+                        int targetInd = (int)((ms2.Mz * ms2.Adduct.AbsCharge - ms2.Adduct.SumFormula.mass) / GROUP_MZ_RANGE);
                         if (targetInd <= 0 || targetInd >= groupedDB.Count - 1)
                         {
                             return new List<Feature>();
@@ -3388,7 +3395,7 @@ namespace BUDDY
                     else
                     {
                         //No formula db restriction
-                        int targetInd = (int)((ms2.Mz - ms2.Adduct.SumFormula.mass) / GROUP_MZ_RANGE);
+                        int targetInd = (int)((ms2.Mz * ms2.Adduct.AbsCharge - ms2.Adduct.SumFormula.mass) / GROUP_MZ_RANGE);
                         if (targetInd <= 0 || targetInd >= groupedDB.Count - 1)
                         {
                             return new List<Feature>();
@@ -3491,7 +3498,7 @@ namespace BUDDY
                     if (MS1Available) // with MS1
                     {
                         //StorageFile modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Model/model_final_highres_pos_withMS1.zip"));
-                        List <Prediction> prediction = Test(testModel, modelFile1.Path, 2);
+                        List<Prediction> prediction = Test(testModel, modelFile1.Path, 2);
                         for (int k = 0; k < prediction.Count; k++)
                         {
                             boosterOutput[k].score = prediction[k].Score;

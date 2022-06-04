@@ -62,7 +62,7 @@ namespace BUDDY.BufpHelper
 
             //feature data matrix
             List<Feature> dm = new List<Feature>();
-            int targetInd = (int)((ms2.Mz - adduct.SumFormula.mass)/ adduct.M / GROUP_MZ_RANGE);
+            int targetInd = (int)((ms2.Mz * adduct.AbsCharge - adduct.SumFormula.mass)/ adduct.M / GROUP_MZ_RANGE);
             //Debug.WriteLine("booster line 66: " + targetInd); // output targetindex
 
             if (targetInd <= 1 || targetInd >= neutralDB.Count - 1)
@@ -132,12 +132,12 @@ namespace BUDDY.BufpHelper
                             o.se <= formRestriction.Se_max).ToList();
             }
 
-            if (ppm == true)
+            if (ppm)
             {
                 ms1tol = ms1tol * ms2.Mz * 1e-6;
             }
 
-            List<AlignedFormula> candidates = new List<AlignedFormula>( precursor_db.Where(o => Math.Abs(o.mass * adduct.M - (ms2.Mz - adduct.SumFormula.mass)) <= ms1tol ));
+            List<AlignedFormula> candidates = new List<AlignedFormula>( precursor_db.Where(o => Math.Abs(o.mass * adduct.M - (ms2.Mz * adduct.AbsCharge - adduct.SumFormula.mass)) <= ms1tol ));
 
             int FTpolarity;
             if (ms2.Polarity == "P")
@@ -204,9 +204,21 @@ namespace BUDDY.BufpHelper
             {
                 if (candidates.Count > topCandidateNum)
                 {
-                    candidates = candidates.OrderBy(o => Math.Abs(o.mass* adduct.M - ms2.Mz + adduct.SumFormula.mass)).Take(topCandidateNum).ToList();
+                    candidates = candidates.OrderBy(o => Math.Abs(o.mass* adduct.M - ms2.Mz * adduct.AbsCharge + adduct.SumFormula.mass)).Take(topCandidateNum).ToList();
                 }
             }
+
+            // TO ADD: isotope similarity for multiply charged ions
+            //if (ms1 != null && ms1.Count > 0)
+            //{
+            //    if (adduct.AbsCharge > 1)
+            //    {
+            //        for (int f = 0; f < ms1.Count; f++)
+            //        {
+            //            ms1[f] = new RAW_PeakElement { Mz = ms1[f].Mz * adduct.AbsCharge, Intensity = ms1[f].Intensity };
+            //        }
+            //    }
+            //}
 
             // Feature data matrix
             Parallel.For(0, candidates.Count, i =>
@@ -217,6 +229,7 @@ namespace BUDDY.BufpHelper
                 if (ms1 != null && ms1.Count > 0)
                 {
                     IMolecularFormula mf = MolecularFormulaManipulator.GetMolecularFormula(candidates[i].formstr_charge);
+                    mf.Charge = adduct.AbsCharge;
                     IsotopePatternGenerator IPG = new IsotopePatternGenerator(isotopic_abundance_cutoff / 100);
                     iPattern = IPG.GetIsotopes(mf);
                     //iPattern.Charge = ION_MODE_FACTOR;
@@ -263,11 +276,11 @@ namespace BUDDY.BufpHelper
                 //preMzErrorInDM = Math.Abs(candidates[i].mass * adduct.M - (ms2.Mz - adduct.SumFormula.mass)) / ms1tol;
                 if (highResMS)
                 {
-                    preMzErrorInDM = Math.Abs(candidates[i].mass * adduct.M - (ms2.Mz - adduct.SumFormula.mass)) / ms1tol;
+                    preMzErrorInDM = Math.Abs(candidates[i].mass * adduct.M - (ms2.Mz * adduct.AbsCharge - adduct.SumFormula.mass)) / ms1tol;
                 }
                 else
                 {
-                    preMzErrorInDM = Math.Abs(candidates[i].mass * adduct.M - (ms2.Mz - adduct.SumFormula.mass));
+                    preMzErrorInDM = Math.Abs(candidates[i].mass * adduct.M - (ms2.Mz * adduct.AbsCharge - adduct.SumFormula.mass));
                 }
 
                 lock (dm) dm.Add(new Feature(
@@ -974,7 +987,7 @@ namespace BUDDY.BufpHelper
 
                 if (cfdf_all.Count == 0)
                 {
-                    int targetInd = (int)((ms2.Mz - adduct.SumFormula.mass) /adduct.M / GROUP_MZ_RANGE);
+                    int targetInd = (int)((ms2.Mz * adduct.AbsCharge - adduct.SumFormula.mass) /adduct.M / GROUP_MZ_RANGE);
                     if (targetInd <= 0 || targetInd >= neutralDB.Count - 1)
                     {
                         return new List<Feature>();

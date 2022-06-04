@@ -16,7 +16,8 @@ namespace BUDDY.FormulaData
     {
         public string Formula { get; set; } //full formula including square bracket
         public string Mode { get; set; }
-        public int M { get; set; } //2M de 2
+        public int M { get; set; } //2M de 2  [2M+H]+
+        public int AbsCharge { get; set; } //absolute charge [M-2H]2-:2, [M+2H]2+:2
         public List<Formula> SubFormulae { get; set; }
         public Formula SumFormula { get; set; }
         public Formula SumFormulaNeg { get; set; }
@@ -38,12 +39,37 @@ namespace BUDDY.FormulaData
                 this.Mode = "N";
             }
 
+            this.AbsCharge = 1; // default: singly charged
+
+
             // Could be handled in one line ---------------------------------------
             // trimFormula = trimFormula.Remove(0, 1); //remove leading square bracket
-            // 0 would be the "[". So starting at 1.
-            // 3 -> "[", "]", and "+/-"
-            // -------------------------------------------------------
-            trimFormula = trimFormula.Substring(1, trimFormula.Length - 3); //formula inside square bracket
+
+            if (trimFormula.EndsWith("]+") || trimFormula.EndsWith("]-"))
+            {
+                // 0 would be the "[". So starting at 1.
+                // 3 -> "[", "]", and "+/-"
+                // -------------------------------------------------------
+                trimFormula = trimFormula.Substring(1, trimFormula.Length - 3); //formula inside square bracket
+            }
+            else
+            {
+                int endBracketIndex = trimFormula.IndexOf("]");
+                if (endBracketIndex > 1)
+                {
+                    // find absolute charge
+                    string tmpForm = trimFormula.Substring(endBracketIndex + 1);
+                    tmpForm = tmpForm.Replace("+", "");
+                    tmpForm = tmpForm.Replace("-", "");
+
+                    AbsCharge = int.Parse(tmpForm);
+
+                    trimFormula = trimFormula.Substring(1, endBracketIndex - 1);
+                }
+            }
+
+
+
 
             // Get the subunit spliting by +/-
             // M+H-H2O -> M; +H ; -H2O
@@ -182,11 +208,11 @@ namespace BUDDY.FormulaData
             this.SubFormulae = subFormList;
             if (this.Mode == "P")
             {
-                massSum = massSum - 0.0005485;
+                massSum = massSum - 0.0005485 * this.AbsCharge;
             }
             else
             {
-                massSum = massSum + 0.0005485;
+                massSum = massSum + 0.0005485 * this.AbsCharge;
             }
             this.SumFormula = new Formula
             {
