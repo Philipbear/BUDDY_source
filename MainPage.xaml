@@ -1267,12 +1267,12 @@
                     <MenuFlyoutSubItem.Icon>
                         <FontIcon Glyph="&#xF571;"/>
                     </MenuFlyoutSubItem.Icon>
-                    <MenuFlyoutSubItem Text="Feature Table(s) with MS2">
+                    <MenuFlyoutSubItem Text="Feature Table">
                         <MenuFlyoutItem Text="From MS-DIAL" Click="ImportMSDIAL_Click"/>
                         <MenuFlyoutItem Text="Custom Table" Click="ImportCustomCSV_Click"/>
                     </MenuFlyoutSubItem>
-                    <MenuFlyoutItem Text="mzML File(s)" Click="ImportMZML_Click"/>
-                    <MenuFlyoutItem Text="MGF File(s)" Click="ImportMGF_Click"/>
+                    <MenuFlyoutItem Text="mzML File" Click="ImportMZML_Click"/>
+                    <MenuFlyoutItem Text="MGF File" Click="ImportMGF_Click"/>
                 </MenuFlyoutSubItem>
                 <MenuFlyoutSeparator />
                 <MenuFlyoutItem Text="Open" Click="OpenProject_Click">
