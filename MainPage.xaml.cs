@@ -7654,6 +7654,18 @@ namespace BUDDY
 
             ContentDialogResult result = await noEXEDialog.ShowAsync();
         }
+        private async void InvalidLibraryImported()
+        {
+            ContentDialog noEXEDialog = new ContentDialog
+            {
+                Title = "Warning",
+                Content = "Invalid MS/MS library. Please make sure that the imported library has intact information for the following: formula, precursorMz, InChIKey and ion mode. " +
+                "\n Fiehn HILIC library will be loaded.",
+                CloseButtonText = "Ok"
+            };
+
+            ContentDialogResult result = await noEXEDialog.ShowAsync();
+        }
         private async void InvalidProjectSelected()
         {
             ContentDialog noEXEDialog = new ContentDialog
@@ -8034,6 +8046,7 @@ namespace BUDDY
                 }
             }
 
+            // parallel for each
             // Source must be array or IList.
             var source = Enumerable.Range(0, featurePairs.Count).ToArray();
             // Partition the entire source array.

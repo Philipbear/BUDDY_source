@@ -153,7 +153,7 @@ namespace BUDDY.MS2LibrarySearch
 
                     // test whether this entry is valid
                     // precursormz : double; ms2spec count > 0; ion mode: P/N ; formula: parsable; inchikey: 27 characters
-                    if (validEntry && FirstEntry == false && InChIKeyStr != null && FormulaStr != null && IonModeStr != null && MS2Spec.Count > 0)
+                    if (validEntry && FirstEntry == false && InChIKeyStr != null && FormulaStr != null && IonModeStr != null && MS2Spec != null)
                     {
                         currEntry.DBNumberString = DBNumberStringStr;
                         currEntry.InChIKey = InChIKeyStr;
@@ -174,9 +174,11 @@ namespace BUDDY.MS2LibrarySearch
 
                         // debug
                         //Debug.WriteLine("DB total count: " + ms2db_list.Count);
-                        //Debug.WriteLine("name: " + currEntry.MetaboliteName);
+
                     }
                     FirstEntry = false;
+
+                    //Debug.WriteLine("name: " + currEntry.MetaboliteName);
 
                     // a new MS2 entry
                     currEntry = new MS2DBEntry();
@@ -258,7 +260,12 @@ namespace BUDDY.MS2LibrarySearch
                     InstrumentTypeStr = line.Substring(17);
                     continue;
                 }
-                if (line.Contains("Instrument: "))
+                if (line.Contains("INSTRUMENTTYPE: "))
+                {
+                    InstrumentTypeStr = line.Substring(16);
+                    continue;
+                }
+                if (line.Contains("Instrument: ") || line.Contains("INSTRUMENT: "))
                 {
                     InstrumentStr = line.Substring(11);
                     continue;
@@ -336,7 +343,28 @@ namespace BUDDY.MS2LibrarySearch
                 }
 
             }
-            ms2db_list.Add(currEntry);
+
+            if (validEntry && FirstEntry == false && InChIKeyStr != null && FormulaStr != null && IonModeStr != null && MS2Spec != null)
+            {
+                currEntry.DBNumberString = DBNumberStringStr;
+                currEntry.InChIKey = InChIKeyStr;
+                currEntry.Adduct = AdductStr;
+                currEntry.PrecursorMz = PrecursorMz;
+                currEntry.InstrumentType = InstrumentTypeStr;
+                currEntry.Instrument = InstrumentStr;
+                currEntry.IonMode = IonModeStr;
+                currEntry.CollisionEnergy = CollisionEnergyStr;
+                currEntry.Formula = FormulaStr;
+                currEntry.Comments = CommentsStr;
+                currEntry.MS2Spec = MS2Spec;
+                currEntry.InChIKeyFirstHalf = InChIKeyStr.Substring(0, 14);
+                currEntry.ValidRT = ValidRT;
+                currEntry.RTminute = RTminute;
+
+                ms2db_list.Add(currEntry);
+            }
+            Debug.WriteLine("ms2DB: " + ms2db_list.Count);
+
             return ms2db_list;
         }
 
