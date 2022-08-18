@@ -9,7 +9,7 @@
   <Identity
     Name="30450ShipeiXing.MetabolomicsBUDDY"
     Publisher="CN=BUDDY team"
-    Version="1.0.0.0" />
+    Version="1.2.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="b3234896-1f0c-424e-8248-a9453c15352c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

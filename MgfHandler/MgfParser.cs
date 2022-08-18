@@ -30,7 +30,6 @@ namespace BUDDY.MgfHandler
                         record.ScanNumber = index;
                         mgfRecords.Add(record);
                         index++;
-
                     }
                 }
             }
@@ -48,6 +47,8 @@ namespace BUDDY.MgfHandler
             mgfRecord.InChiKey = "Unknown";
             mgfRecord.Formula_PC = "Unknown";
             mgfRecord.ImageLink = "open.png";
+            mgfRecord.Polarity = "P";
+            mgfRecord.Adduct = new Adduct("[M+H]+");
 
             while (sr.Peek() > -1)
             {
@@ -178,6 +179,8 @@ namespace BUDDY.MgfHandler
                     mgfRecord.OriSpectrum.Add(peak);
                 }
             }
+
+
             return mgfRecord;
         }
     }

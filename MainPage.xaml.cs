@@ -2011,6 +2011,9 @@ namespace BUDDY
                 }
                 posMS2DB = MS2DB.Where(o => o.IonMode == "P").ToList();
                 negMS2DB = MS2DB.Where(o => o.IonMode == "N").ToList();
+
+                //Debug.WriteLine("posDB: " + posMS2DB.Count);
+                //Debug.WriteLine("negDB: " + negMS2DB.Count);
             }
 
             var filemodel = (FileModel)dataGrid.DataContext;
@@ -2025,10 +2028,22 @@ namespace BUDDY
                 calculateMS2Progressbar.Minimum = 0;
                 calculateMS2Progressbar.Maximum = selectedMS2Count;
                 calculateMS2Progressbar.Value = 0;
+
+                string loadedMS2DBName = "";
+                if (useCustomMS2DB)
+                {
+                    loadedMS2DBName = ms2DBfileName.Substring(ms2DBfileName.LastIndexOf("\\") + 1);
+                }
+                else
+                {
+                    loadedMS2DBName = "Fiehn HILIC";
+                }
+
                 for (int i = 0; i < ms2model.MS2s.Count; i++)
                 {
                     //debug
                     //Debug.WriteLine("MS2 searching, ms2 index: " + i);
+
                     if (ms2model.MS2s[i].Selected)
                     {
                          //  seed metabolite offered by users
@@ -2084,15 +2099,7 @@ namespace BUDDY
 
 
                         ms2model.MS2s[i].Ms2Matching = new Ms2MatchingResult();
-                        if (useCustomMS2DB)
-                        {
-                            ms2model.MS2s[i].Ms2Matching.MS2DB = ms2DBfileName.Substring(ms2DBfileName.LastIndexOf("\\") + 1);
-                        }
-                        else
-                        {
-                            ms2model.MS2s[i].Ms2Matching.MS2DB = "Fiehn HILIC";
-                        }
-                        
+                        ms2model.MS2s[i].Ms2Matching.MS2DB = loadedMS2DBName;
                         ms2model.MS2s[i].Ms2Matching.MS2MatchingAlgorithm = ms2MatchingAlgorithm;
                         ms2model.MS2s[i].Ms2Matching.ms2MatchingReturns = thisLibrarySearchOutput;
 
