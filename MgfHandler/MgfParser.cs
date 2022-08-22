@@ -83,7 +83,7 @@ namespace BUDDY.MgfHandler
                             if (chargeState.Contains("+"))
                             {
                                 mgfRecord.Polarity = "P";
-                                mgfRecord.Adduct = new Adduct("[M+H]+");
+                                //mgfRecord.Adduct = new Adduct("[M+H]+");
                             }
                             else if (chargeState.Contains("-"))
                             {
@@ -101,7 +101,7 @@ namespace BUDDY.MgfHandler
                             }
                             catch
                             {
-                                mgfRecord.Adduct = new Adduct("[M-H]-");
+                                mgfRecord.Adduct = new Adduct("[M+H]+");
                             }
                             break;
                         //case "MSLEVEL":
@@ -122,7 +122,7 @@ namespace BUDDY.MgfHandler
                             if (lineEqualSplit[1].Contains("P") || lineEqualSplit[1].Contains("p"))
                             {
                                 mgfRecord.Polarity = "P";
-                                mgfRecord.Adduct = new Adduct("[M+H]+");
+                                //mgfRecord.Adduct = new Adduct("[M+H]+");
                             }
                             else
                             {

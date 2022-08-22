@@ -12,10 +12,10 @@
         <StackPanel Orientation="Vertical" Width="450" Margin="20,20,20,20" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Image HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Margin="0,10,0,10" Source="ms-appx:///Image/logo_about.png"/>
             <Button x:Name="Removefocus_button" Width="0" Height="0" ></Button>
-            <TextBlock Text="Current version:    BUDDY 1.2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0" CharacterSpacing="15"
+            <TextBlock Text="Current version:    BUDDY 1.3" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0" CharacterSpacing="15"
                    Foreground="white" FontSize="18">
             </TextBlock>
-            <TextBlock Text="Last update:    Aug 17, 2022" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,15,0,0"  CharacterSpacing="15"
+            <TextBlock Text="Last update:    Aug 21, 2022" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,15,0,0"  CharacterSpacing="15"
                    Foreground="White" FontSize="18">
             </TextBlock>
             <TextBlock Text="Authors:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,15,0,0" CharacterSpacing="15"
