@@ -447,7 +447,6 @@ namespace BUDDY
                     {
                         continue;
                     }
-
                 }
                 else
                 {
